@@ -165,7 +165,7 @@ export function Firewall() {
           subtitle={
             <span className="flex items-center gap-2">
               Rules for
-              <select value={groupId} onChange={(e) => { setGroupId(e.target.value); setPage(1); }} className="rounded-md border border-line bg-white px-1.5 py-0.5 text-[13px] font-semibold text-slate-700" aria-label="Choose firewall group">
+              <select value={groupId} onChange={(e) => { setGroupId(e.target.value); setPage(1); }} className="rounded-md border border-line bg-surface px-1.5 py-0.5 text-[13px] font-semibold text-slate-700" aria-label="Choose firewall group">
                 {all.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
               </select>
             </span>

@@ -77,7 +77,7 @@ export function LoginForm() {
     <div>
       <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Welcome back</p>
       <h1 className="mt-2 text-[28px] font-bold tracking-tight text-slate-900 sm:text-[32px]">
-        Log in to your <span className="text-indigo-500">cloud.</span>
+        Log in to your <span className="text-brand-600">cloud.</span>
       </h1>
       <p className="mt-2 text-sm text-slate-500">Sign in to manage your Northstar Cloud servers and billing.</p>
 
@@ -94,9 +94,9 @@ export function LoginForm() {
                 setErrors({});
                 setState("idle");
               }}
-              className="flex items-center gap-2.5 rounded-lg border border-brand-100 bg-white px-3 py-2 text-left transition-all hover:-translate-y-px hover:border-brand-300 hover:shadow-card"
+              className="flex items-center gap-2.5 rounded-lg border border-brand-100 bg-surface px-3 py-2 text-left transition-all hover:-translate-y-px hover:border-brand-300 hover:shadow-card"
             >
-              <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand-600 text-white">{d.icon}</span>
+              <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand-600 text-deep-50">{d.icon}</span>
               <span className="min-w-0">
                 <span className="block text-[13px] font-semibold text-slate-900">{d.label}</span>
                 <span className="block truncate text-[11px] text-slate-500">{d.email}</span>

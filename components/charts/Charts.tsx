@@ -82,9 +82,9 @@ export function TrendChart({
               ))}
             </defs>
             {[0, 1, 2, 3].map((i) => (
-              <line key={i} x1="0" x2={W} y1={8 + (i * (H - 16)) / 4} y2={8 + (i * (H - 16)) / 4} stroke="#e8edf4" strokeDasharray="3 4" vectorEffect="non-scaling-stroke" />
+              <line key={i} x1="0" x2={W} y1={8 + (i * (H - 16)) / 4} y2={8 + (i * (H - 16)) / 4} stroke="#1f403e" strokeDasharray="3 4" vectorEffect="non-scaling-stroke" />
             ))}
-            <line x1="0" x2={W} y1={H - 8} y2={H - 8} stroke="#e2e8f0" vectorEffect="non-scaling-stroke" />
+            <line x1="0" x2={W} y1={H - 8} y2={H - 8} stroke="#325553" vectorEffect="non-scaling-stroke" />
             {series.map((s, i) => {
               const pts = toPoints(s.values);
               const d = smoothPath(pts);
@@ -95,17 +95,17 @@ export function TrendChart({
                 </g>
               );
             })}
-            {hover !== null ? <line x1={(hover / (n - 1)) * W} x2={(hover / (n - 1)) * W} y1="0" y2={H - 8} stroke="#94a3b8" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" /> : null}
+            {hover !== null ? <line x1={(hover / (n - 1)) * W} x2={(hover / (n - 1)) * W} y1="0" y2={H - 8} stroke="#6f908c" strokeDasharray="3 3" vectorEffect="non-scaling-stroke" /> : null}
           </svg>
           {hover !== null
             ? series.map((s) => {
                 const [x, y] = toPoints(s.values)[hover]!;
-                return <span key={s.name} className="pointer-events-none absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow" style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%`, background: s.color }} />;
+                return <span key={s.name} className="pointer-events-none absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface shadow" style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%`, background: s.color }} />;
               })
             : null}
           {hover !== null ? (
             <div
-              className="pointer-events-none absolute top-0 z-10 rounded-lg border border-line bg-white px-2.5 py-2 text-[11px] shadow-pop"
+              className="pointer-events-none absolute top-0 z-10 rounded-lg border border-line bg-surface px-2.5 py-2 text-[11px] shadow-pop"
               style={{ left: `${(hover / (n - 1)) * 100}%`, transform: `translateX(${hover > n / 2 ? "calc(-100% - 10px)" : "10px"})` }}
             >
               {hoverLabels?.[hover] ? <p className="mb-1 font-semibold text-slate-700">{hoverLabels[hover]}</p> : null}
@@ -141,7 +141,7 @@ export function BarChart({ data, height = 150, format = (v: number) => String(v)
           return (
             <div key={d.label} className="relative flex h-full w-full max-w-11 flex-col justify-end" onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}>
               {hover === i ? (
-                <span className="absolute -top-1 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[11px] font-semibold text-white shadow animate-fade-in">
+                <span className="absolute -top-1 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md bg-deep-1000 px-2 py-1 text-[11px] font-semibold text-deep-50 shadow animate-fade-in">
                   {format(d.value)}
                 </span>
               ) : null}
@@ -167,13 +167,13 @@ export function BarChart({ data, height = 150, format = (v: number) => String(v)
   );
 }
 
-export function Donut({ value, size = 92, stroke = 11, color = "#2563eb", children }: { value: number; size?: number; stroke?: number; color?: string; children?: ReactNode }) {
+export function Donut({ value, size = 92, stroke = 11, color = "#6fe0ed", children }: { value: number; size?: number; stroke?: number; color?: string; children?: ReactNode }) {
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
   return (
     <div className="relative shrink-0" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90" role="img" aria-label={`${value}% used`}>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#e8eef8" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#1f403e" strokeWidth={stroke} />
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeDasharray={`${(value / 100) * c} ${c}`} className="transition-[stroke-dasharray] duration-1000" />
       </svg>
       <div className="absolute inset-0 grid place-items-center text-center">{children}</div>

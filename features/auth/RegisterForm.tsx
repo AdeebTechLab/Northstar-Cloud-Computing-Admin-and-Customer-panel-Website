@@ -64,7 +64,7 @@ export function RegisterForm() {
     <div>
       <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Create your account</p>
       <h1 className="mt-2 text-[28px] font-bold tracking-tight text-slate-900 sm:text-[32px]">
-        Get started for <span className="text-indigo-500">free.</span>
+        Get started for <span className="text-brand-600">free.</span>
       </h1>
       <p className="mt-2 text-sm text-slate-500">Create your Northstar Cloud account and launch your first project.</p>
 

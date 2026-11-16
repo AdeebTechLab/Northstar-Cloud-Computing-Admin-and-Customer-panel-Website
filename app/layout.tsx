@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/inter";
+import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource/jetbrains-mono/400.css";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth/AuthProvider";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2563eb",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };

@@ -11,7 +11,7 @@ export function SkipLink({ target = "main-content" }: { target?: string }) {
   return (
     <a
       href={`#${target}`}
-      className="fixed left-3 top-3 z-[100] -translate-y-20 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-pop transition-transform focus:translate-y-0"
+      className="fixed left-3 top-3 z-[120] -translate-y-20 rounded-full bg-foam-200 px-4 py-2.5 text-sm font-medium text-deep-50 shadow-pop transition-transform focus:translate-y-0"
     >
       Skip to content
     </a>
@@ -41,8 +41,8 @@ export function ScrollProgress({ className }: { className?: string }) {
     };
   }, []);
   return (
-    <div data-scroll-progress className={cn("pointer-events-none fixed inset-x-0 top-0 z-[70] h-[3px]", className)} aria-hidden="true">
-      <div className="h-full origin-left bg-gradient-to-r from-brand-500 via-brand-400 to-sky-400 shadow-[0_0_8px_rgba(59,116,245,0.6)]" style={{ transform: `scaleX(${p / 100})` }} />
+    <div data-scroll-progress className={cn("pointer-events-none fixed inset-x-0 top-0 z-[110] h-[3px]", className)} aria-hidden="true">
+      <div className="h-full origin-left bg-gradient-to-r from-foam-400 via-foam-200 to-foam-100 shadow-[0_0_8px_rgba(111,224,237,0.6)]" style={{ transform: `scaleX(${p / 100})` }} />
     </div>
   );
 }
@@ -66,7 +66,7 @@ export function BackToTop({ className }: { className?: string }) {
       }}
       aria-label="Back to top"
       className={cn(
-        "fixed right-4 z-[60] grid size-11 place-items-center rounded-full border border-line bg-white text-slate-700 shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-200 hover:text-brand-600 sm:right-6",
+        "fixed right-4 z-[60] grid size-11 place-items-center rounded-full border border-line bg-surface text-ink-2 shadow-pop transition-all duration-300 hover:-translate-y-0.5 hover:border-foam-200 hover:text-foam-200 sm:right-6",
         show ? "pointer-events-auto opacity-100" : "pointer-events-none translate-y-3 opacity-0",
         className ?? "bottom-5 sm:bottom-6",
       )}
@@ -108,7 +108,7 @@ export function Reveal({ children, className, delay = 0, as: Tag = "div" }: { ch
 
 export function LastUpdated({ className, date = SITE_LAST_UPDATED, prefix = "Last updated" }: { className?: string; date?: string; prefix?: string }) {
   return (
-    <p className={cn("text-xs text-slate-500", className)}>
+    <p className={cn("text-xs text-muted", className)}>
       {prefix}: <time dateTime={date}>{longDate(date)}</time>
     </p>
   );

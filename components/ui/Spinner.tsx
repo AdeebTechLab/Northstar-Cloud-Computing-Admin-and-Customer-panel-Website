@@ -18,7 +18,7 @@ export function PageLoader({ label = "Loading…" }: { label?: string }) {
     <div className="flex min-h-[60vh] w-full flex-col items-center justify-center gap-4 animate-fade-in" role="status" aria-live="polite">
       <div className="relative grid size-14 place-items-center">
         <span className="absolute inset-0 rounded-2xl bg-brand-500/15 animate-ping" />
-        <span className="relative grid size-12 place-items-center rounded-2xl bg-brand-600 text-lg font-bold text-white shadow-lg shadow-brand-600/30">N</span>
+        <span className="relative grid size-12 place-items-center rounded-2xl bg-brand-600 text-lg font-bold text-deep-50 shadow-lg shadow-brand-600/30">N</span>
       </div>
       <p className="text-sm font-medium text-slate-500">{label}</p>
     </div>

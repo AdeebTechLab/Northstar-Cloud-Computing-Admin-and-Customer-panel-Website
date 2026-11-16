@@ -79,8 +79,8 @@ export function AdminPlans() {
 
       <div className="mt-6 flex flex-wrap items-end justify-between gap-3">
         <div><h2 className="text-[15px] font-semibold text-slate-900">Featured Cloud Plans</h2><p className="text-[13px] text-slate-500">Review your popular compute offerings.</p></div>
-        <div role="group" aria-label="Billing cycle" className="inline-flex rounded-lg border border-line bg-white p-0.5 text-xs font-semibold">
-          {(["monthly", "hourly"] as const).map((c) => <button key={c} type="button" aria-pressed={cycle === c} onClick={() => setCycle(c)} className={cn("rounded-md px-3 py-1.5 capitalize transition-colors", cycle === c ? "bg-brand-600 text-white" : "text-slate-500 hover:text-slate-800")}>{c}</button>)}
+        <div role="group" aria-label="Billing cycle" className="inline-flex rounded-lg border border-line bg-surface p-0.5 text-xs font-semibold">
+          {(["monthly", "hourly"] as const).map((c) => <button key={c} type="button" aria-pressed={cycle === c} onClick={() => setCycle(c)} className={cn("rounded-md px-3 py-1.5 capitalize transition-colors", cycle === c ? "bg-brand-600 text-deep-50" : "text-slate-500 hover:text-slate-800")}>{c}</button>)}
         </div>
       </div>
       <div className="mt-3 grid gap-4 lg:grid-cols-3">

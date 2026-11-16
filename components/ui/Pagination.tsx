@@ -30,7 +30,7 @@ export function Pagination({
       {pages > 1 ? (
         variant === "text" ? (
           <nav aria-label="Pagination" className="flex items-center gap-1 font-medium text-brand-600">
-            <button type="button" disabled={page === 1} onClick={() => onChange(page - 1)} className="rounded px-1.5 py-1 hover:bg-brand-50 disabled:text-slate-300 disabled:hover:bg-transparent">
+            <button type="button" disabled={page === 1} onClick={() => onChange(page - 1)} className="rounded px-1.5 py-1 hover:bg-brand-50 disabled:text-deep-900 disabled:hover:bg-transparent">
               ← Previous
             </button>
             {nums.map((n) => (
@@ -38,13 +38,13 @@ export function Pagination({
                 {n}
               </button>
             ))}
-            <button type="button" disabled={page === pages} onClick={() => onChange(page + 1)} className="rounded px-1.5 py-1 hover:bg-brand-50 disabled:text-slate-300 disabled:hover:bg-transparent">
+            <button type="button" disabled={page === pages} onClick={() => onChange(page + 1)} className="rounded px-1.5 py-1 hover:bg-brand-50 disabled:text-deep-900 disabled:hover:bg-transparent">
               Next →
             </button>
           </nav>
         ) : (
           <nav aria-label="Pagination" className="flex items-center gap-1.5">
-            <button type="button" disabled={page === 1} onClick={() => onChange(page - 1)} className="grid size-8 place-items-center rounded-lg border border-line bg-white text-slate-500 hover:bg-slate-50 disabled:opacity-40" aria-label="Previous page">
+            <button type="button" disabled={page === 1} onClick={() => onChange(page - 1)} className="grid size-8 place-items-center rounded-lg border border-line bg-surface text-slate-500 hover:bg-slate-50 disabled:opacity-40" aria-label="Previous page">
               <ChevronLeft className="size-4" />
             </button>
             {nums.map((n, i) => (
@@ -54,13 +54,13 @@ export function Pagination({
                   type="button"
                   onClick={() => onChange(n)}
                   aria-current={n === page ? "page" : undefined}
-                  className={cn("grid size-8 place-items-center rounded-lg border text-xs font-semibold transition-colors", n === page ? "border-brand-600 bg-brand-600 text-white" : "border-line bg-white text-slate-600 hover:bg-slate-50")}
+                  className={cn("grid size-8 place-items-center rounded-lg border text-xs font-semibold transition-colors", n === page ? "border-brand-600 bg-brand-600 text-deep-50" : "border-line bg-surface text-slate-600 hover:bg-slate-50")}
                 >
                   {n}
                 </button>
               </span>
             ))}
-            <button type="button" disabled={page === pages} onClick={() => onChange(page + 1)} className="grid size-8 place-items-center rounded-lg border border-line bg-white text-slate-500 hover:bg-slate-50 disabled:opacity-40" aria-label="Next page">
+            <button type="button" disabled={page === pages} onClick={() => onChange(page + 1)} className="grid size-8 place-items-center rounded-lg border border-line bg-surface text-slate-500 hover:bg-slate-50 disabled:opacity-40" aria-label="Next page">
               <ArrowRight className="size-4" />
             </button>
           </nav>

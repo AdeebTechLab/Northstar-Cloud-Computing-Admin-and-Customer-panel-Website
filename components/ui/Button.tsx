@@ -3,29 +3,41 @@ import { forwardRef, type ButtonHTMLAttributes, type ComponentProps, type ReactN
 import { cn } from "@/lib/cn";
 import { Spinner } from "./Spinner";
 
-type Variant = "primary" | "secondary" | "ghost" | "danger" | "danger-outline" | "white" | "outline-light" | "link";
+/**
+ * Pill buttons cloned from the DigitalOcean Button component.
+ *  primary          → cyan fill, black text (Button.colorPrimary)
+ *  secondary        → outlined pill that fills cyan on hover (Button.colorGhost)
+ *  tertiary         → deep-400 fill (Button.colorSecondary)
+ *  ghost            → text only with the header-link hover
+ *  hero / hero-ghost → glowing white pills used on hero backgrounds
+ *  white            → white fill (Button.colorWhite)
+ */
+type Variant = "primary" | "secondary" | "tertiary" | "ghost" | "danger" | "danger-outline" | "white" | "hero" | "hero-ghost" | "outline-light" | "link";
 type Size = "xs" | "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-brand-600 text-white shadow-sm shadow-brand-600/20 hover:bg-brand-700 active:bg-brand-800 disabled:bg-brand-600/60",
-  secondary: "border border-line bg-white text-slate-700 shadow-[0_1px_1px_rgba(15,23,42,0.03)] hover:border-slate-300 hover:bg-slate-50 active:bg-slate-100 disabled:opacity-60",
-  ghost: "text-slate-600 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-50",
-  danger: "bg-red-600 text-white shadow-sm hover:bg-red-700 active:bg-red-800 disabled:bg-red-600/60",
-  "danger-outline": "border border-red-200 bg-white text-red-600 hover:border-red-300 hover:bg-red-50 disabled:opacity-60",
-  white: "bg-white text-slate-900 shadow-sm hover:bg-slate-100 disabled:opacity-60",
-  "outline-light": "border border-white/30 bg-white/0 text-white hover:border-white/60 hover:bg-white/10 disabled:opacity-60",
-  link: "px-0! text-brand-600 hover:text-brand-700 hover:underline underline-offset-4",
+  primary: "border-transparent bg-foam-200 text-deep-50 hover:bg-foam-400 focus-visible:bg-foam-400 disabled:bg-foam-200/50 disabled:text-deep-50/70",
+  secondary: "border-deep-1000 bg-transparent text-deep-1000 hover:border-transparent hover:bg-foam-200 hover:text-deep-50 disabled:opacity-50",
+  tertiary: "border-transparent bg-deep-400 text-deep-1000 hover:bg-deep-500 disabled:opacity-50",
+  ghost: "border-transparent bg-transparent text-deep-950 hover:bg-hover hover:text-deep-1000 disabled:opacity-50",
+  danger: "border-transparent bg-coral-400 text-deep-1000 hover:bg-coral-300 disabled:opacity-60",
+  "danger-outline": "border-coral-300 bg-transparent text-coral-200 hover:bg-coral-900 disabled:opacity-60",
+  white: "border-transparent bg-deep-1000 text-deep-50 hover:bg-foam-200 disabled:opacity-60",
+  hero: "border-transparent bg-deep-1000 text-deep-50 shadow-glow hover:bg-deep-950 hover:shadow-glow-lg",
+  "hero-ghost": "border-deep-1000 bg-transparent text-deep-1000 shadow-glow hover:border-transparent hover:bg-deep-950 hover:text-deep-50 hover:shadow-glow-lg",
+  "outline-light": "border-deep-1000 bg-transparent text-deep-1000 shadow-glow hover:border-transparent hover:bg-deep-950 hover:text-deep-50 hover:shadow-glow-lg",
+  link: "h-auto! rounded-none border-transparent bg-transparent px-0! text-foam-200 hover:text-foam-300 hover:underline underline-offset-4",
 };
 
 const sizes: Record<Size, string> = {
-  xs: "h-7 gap-1 rounded-md px-2.5 text-xs",
-  sm: "h-8 gap-1.5 rounded-lg px-3 text-[13px]",
-  md: "h-9 gap-2 rounded-lg px-4 text-sm",
-  lg: "h-11 gap-2 rounded-lg px-5 text-[15px]",
+  xs: "h-7 gap-1 px-3 text-xs",
+  sm: "h-8 gap-1.5 px-4 text-sm",
+  md: "h-10 gap-2 px-6 text-[15px]",
+  lg: "h-12 gap-2 px-7 text-base",
 };
 
 const base =
-  "inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap font-medium transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 [&_svg]:size-4 [&_svg]:shrink-0";
+  "inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap rounded-full border font-medium transition-[background-color,border-color,color,box-shadow] duration-300 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foam-200 [&_svg]:size-4 [&_svg]:shrink-0";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;

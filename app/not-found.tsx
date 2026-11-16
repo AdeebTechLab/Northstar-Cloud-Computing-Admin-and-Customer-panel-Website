@@ -1,16 +1,18 @@
-import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { ButtonLink } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <main id="main-content" className="grid min-h-dvh place-items-center bg-[#f8faff] px-4 text-center">
-      <div className="animate-fade-up">
-        <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-600">Error 404</p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900">This page drifted off the map.</h1>
-        <p className="mx-auto mt-3 max-w-md text-[15px] text-slate-500">The page you&apos;re looking for doesn&apos;t exist or was moved.</p>
-        <Link href="/" className="mt-8 inline-flex h-10 items-center gap-2 rounded-lg bg-brand-600 px-5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700">
-          <ArrowLeft className="size-4" /> Back to home
-        </Link>
+    <main id="main-content" className="do-glow-soft grid min-h-dvh place-items-center bg-canvas px-6 text-center">
+      <div className="flex flex-col items-center gap-6 animate-fade-up">
+        <div className="flex flex-col gap-2">
+          <p className="text-sm font-medium text-foam-200">Error 404</p>
+          <h1 className="t-xl5 t-display">This page drifted off the map.</h1>
+          <p className="mx-auto max-w-md text-base text-ink-2">The page you are looking for does not exist or was moved.</p>
+        </div>
+        <ButtonLink href="/" icon={<ArrowLeft />}>
+          Back to home
+        </ButtonLink>
       </div>
     </main>
   );

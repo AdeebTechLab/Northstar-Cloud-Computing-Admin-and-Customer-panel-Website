@@ -98,7 +98,7 @@ function CustomerChrome({ children }: { children: ReactNode }) {
           <div className="rounded-xl border border-white/[0.08] bg-white/[0.04] p-3.5">
             <p className="text-[13px] font-semibold text-white">Need a hand?</p>
             <p className="mt-1 text-[11px] leading-relaxed text-slate-400">Explore guides or get help from our cloud support team.</p>
-            <Link href="/dashboard/support" className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-brand-600 px-2.5 py-1.5 text-[11px] font-semibold text-white transition-colors hover:bg-brand-500">
+            <Link href="/dashboard/support" className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-brand-600 px-2.5 py-1.5 text-[11px] font-semibold text-deep-50 transition-colors hover:bg-brand-700">
               Visit support <ArrowUpRight className="size-3" />
             </Link>
           </div>

@@ -1,9 +1,10 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
+/** Card surface cloned from the DigitalOcean SlotBasedCard: 16px radius, card background, subtle border. */
 export function Card({ className, children, ...rest }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("rounded-xl border border-line bg-white shadow-card", className)} {...rest}>
+    <div className={cn("rounded-2xl border border-line bg-surface shadow-card", className)} {...rest}>
       {children}
     </div>
   );
@@ -25,10 +26,10 @@ export function CardHeader({
   return (
     <div className={cn("flex flex-wrap items-start justify-between gap-3 px-5 pt-5", className)}>
       <div className="min-w-0">
-        <h2 id={id} className="text-[15px] font-semibold text-slate-900">
+        <h2 id={id} className="font-sans text-[15px] font-semibold text-ink">
           {title}
         </h2>
-        {subtitle ? <p className="mt-0.5 text-[13px] text-slate-500">{subtitle}</p> : null}
+        {subtitle ? <p className="mt-0.5 text-[13px] text-muted">{subtitle}</p> : null}
       </div>
       {action ? <div className="flex shrink-0 flex-wrap items-center gap-2">{action}</div> : null}
     </div>

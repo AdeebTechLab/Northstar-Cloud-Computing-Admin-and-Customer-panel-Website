@@ -35,7 +35,7 @@ export function Menu({ trigger, items, align = "right", label, placement = "down
     <div ref={ref} className={cn("relative", block ? "block" : "inline-block")}>
       {trigger({ open, toggle: () => setOpen((o) => !o) })}
       {open ? (
-        <div role="menu" aria-label={label} className={cn("absolute z-40 min-w-48 overflow-hidden rounded-xl border border-line bg-white p-1 shadow-pop animate-scale-in", align === "right" ? "right-0" : "left-0", placement === "up" ? "bottom-full mb-1.5" : "mt-1.5")}>
+        <div role="menu" aria-label={label} className={cn("absolute z-40 min-w-48 overflow-hidden rounded-xl border border-line bg-surface p-1 shadow-pop animate-scale-in", align === "right" ? "right-0" : "left-0", placement === "up" ? "bottom-full mb-1.5" : "mt-1.5")}>
           {items.map((it) => (
             <button
               key={it.label}
@@ -84,7 +84,7 @@ export function Popover({ trigger, children, align = "right", className, label }
     <div ref={ref} className="relative inline-block">
       {trigger({ open, toggle: () => setOpen((o) => !o) })}
       {open ? (
-        <div role="dialog" aria-label={label} className={cn("absolute z-40 mt-1.5 overflow-hidden rounded-xl border border-line bg-white shadow-pop animate-scale-in", align === "right" ? "right-0" : "left-0", className)}>
+        <div role="dialog" aria-label={label} className={cn("absolute z-40 mt-1.5 overflow-hidden rounded-xl border border-line bg-surface shadow-pop animate-scale-in", align === "right" ? "right-0" : "left-0", className)}>
           {children(() => setOpen(false))}
         </div>
       ) : null}

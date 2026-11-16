@@ -39,7 +39,7 @@ function Choice({ selected, onClick, children, label }: { selected: boolean; onC
       onClick={onClick}
       className={cn(
         "relative w-full rounded-lg border p-3.5 text-left transition-all duration-150",
-        selected ? "border-brand-500 bg-brand-50/70 ring-2 ring-brand-500/15" : "border-line bg-white hover:border-slate-300 hover:bg-slate-50",
+        selected ? "border-brand-500 bg-brand-50/70 ring-2 ring-brand-500/15" : "border-line bg-surface hover:border-slate-300 hover:bg-slate-50",
       )}
     >
       {children}

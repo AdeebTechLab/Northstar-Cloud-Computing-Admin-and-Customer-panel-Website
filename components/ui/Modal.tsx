@@ -71,7 +71,7 @@ export function Modal({
 
   return createPortal(
     <div data-modal-root className="fixed inset-0 z-[80]">
-      <div data-modal-overlay className="absolute inset-0 bg-slate-900/45 backdrop-blur-[2px] animate-fade-in" onClick={dismissible ? onClose : undefined} />
+      <div data-modal-overlay className="absolute inset-0 bg-black/45 backdrop-blur-[2px] animate-fade-in" onClick={dismissible ? onClose : undefined} />
       <div className="absolute inset-0 flex items-end justify-center overflow-y-auto p-0 sm:items-center sm:p-6" onClick={dismissible ? onClose : undefined}>
         <div
           ref={panelRef}
@@ -82,7 +82,7 @@ export function Modal({
           tabIndex={-1}
           onClick={(e) => e.stopPropagation()}
           className={cn(
-            "relative flex max-h-[92vh] w-full flex-col rounded-t-2xl border border-line bg-white shadow-pop outline-none animate-scale-in sm:rounded-2xl",
+            "relative flex max-h-[92vh] w-full flex-col rounded-t-2xl border border-line bg-surface shadow-pop outline-none animate-scale-in sm:rounded-2xl",
             widths[size],
           )}
         >

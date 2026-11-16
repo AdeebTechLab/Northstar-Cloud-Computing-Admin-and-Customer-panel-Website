@@ -120,8 +120,8 @@ export function CustomerOverview() {
                 xLabels={chart.labels}
                 hoverLabels={hoverLabels}
                 series={[
-                  { name: "CPU utilization", values: chart.cpu, color: "#2563eb", fill: true },
-                  { name: "Memory utilization", values: chart.memory, color: "#93b6fd", fill: true },
+                  { name: "CPU utilization", values: chart.cpu, color: "#6fe0ed", fill: true },
+                  { name: "Memory utilization", values: chart.memory, color: "#1aafbf", fill: true },
                 ]}
               />
               <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">

@@ -121,13 +121,13 @@ export function Billing() {
     <div>
       <PageHeader crumbs={[{ label: "Workspace" }, { label: "Account" }, { label: "Billing & Payments" }]} title="Billing & Payments" subtitle="Manage your account balance, invoices, and payment methods." actions={<Button variant="secondary" icon={<Settings />} onClick={() => { if (profile.data) setProfileForm(profile.data); setProfileErr(""); setProfileOpen(true); }}>Billing Settings</Button>} />
 
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-navy-800 via-[#173270] to-brand-700 p-6 text-white shadow-card">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-foam-900 via-foam-800 to-foam-600 p-6 text-white shadow-card">
         <div className="pointer-events-none absolute -right-10 -top-16 size-56 rounded-full bg-white/10 blur-2xl" aria-hidden="true" />
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs text-slate-300">Available Account Balance</p>
+            <p className="text-xs text-deep-900">Available Account Balance</p>
             {summary.loading ? <Skeleton className="mt-2 h-9 w-36 opacity-30" /> : <p className="mt-1 text-[32px] font-bold tracking-tight">{money(summary.data?.balance ?? 0)}</p>}
-            <p className="text-xs text-slate-300">Your balance is available for future service charges.</p>
+            <p className="text-xs text-deep-900">Your balance is available for future service charges.</p>
           </div>
           <div className="no-print flex gap-2">
             <Button variant="white" icon={<Plus />} onClick={() => { setAmount("50"); setFundsErr(""); setFundsState("idle"); setFundsOpen(true); }}>Add Funds</Button>

@@ -75,8 +75,8 @@ export function CommandPalette({ open, onClose, items, placeholder = "Search…"
   let lastGroup = "";
   return createPortal(
     <div className="fixed inset-0 z-[85]" role="dialog" aria-modal="true" aria-label="Site search">
-      <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
-      <div className="relative mx-auto mt-[8vh] w-[calc(100%-1.5rem)] max-w-xl overflow-hidden rounded-2xl border border-line bg-white shadow-pop animate-scale-in">
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
+      <div className="relative mx-auto mt-[8vh] w-[calc(100%-1.5rem)] max-w-xl overflow-hidden rounded-2xl border border-line bg-surface shadow-pop animate-scale-in">
         <div className="flex items-center gap-3 border-b border-line px-4">
           <Search className="size-[18px] text-slate-400" aria-hidden="true" />
           <input
@@ -125,7 +125,7 @@ export function CommandPalette({ open, onClose, items, placeholder = "Search…"
                     onClick={() => go(it)}
                     className={cn("flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors", i === active ? "bg-brand-50" : "hover:bg-slate-50")}
                   >
-                    <span className={cn("grid size-8 shrink-0 place-items-center rounded-lg [&_svg]:size-4", i === active ? "bg-brand-600 text-white" : "bg-slate-100 text-slate-500")}>{it.icon ?? <ArrowRight />}</span>
+                    <span className={cn("grid size-8 shrink-0 place-items-center rounded-lg [&_svg]:size-4", i === active ? "bg-brand-600 text-deep-50" : "bg-slate-100 text-slate-500")}>{it.icon ?? <ArrowRight />}</span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-sm font-medium text-slate-900">{it.title}</span>
                       {it.subtitle ? <span className="block truncate text-xs text-slate-500">{it.subtitle}</span> : null}

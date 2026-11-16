@@ -182,7 +182,7 @@ export function ServerDetail({ id }: { id: string }) {
             {cpu.loading || !cpu.data ? (
               <Skeleton className="h-44" />
             ) : (
-              <TrendChart xLabels={["24h ago", "18h", "12h", "6h", "Now"]} hoverLabels={cpu.data.map((_, i) => `${Math.round(24 - (i * 24) / (cpu.data!.length - 1))}h ago`)} series={[{ name: "CPU Usage", values: cpu.data, color: "#2563eb" }]} height={190} />
+              <TrendChart xLabels={["24h ago", "18h", "12h", "6h", "Now"]} hoverLabels={cpu.data.map((_, i) => `${Math.round(24 - (i * 24) / (cpu.data!.length - 1))}h ago`)} series={[{ name: "CPU Usage", values: cpu.data, color: "#6fe0ed" }]} height={190} />
             )}
             <div className="mt-3 flex gap-4 text-[11px] text-slate-500">
               <span className="flex items-center gap-1.5"><span className="size-2 rounded-full bg-brand-600" /> CPU Usage</span>

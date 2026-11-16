@@ -22,8 +22,33 @@ async function copyText(text: string) {
   }
 }
 
-export function CopyButton({ value, label = "Copy", className, dark, showText }: { value: string; label?: string; className?: string; dark?: boolean; showText?: boolean }) {
+/**
+ * Copy-to-clipboard button.
+ *  default → subtle icon button for tables and cards
+ *  code    → pill in the code-block header (DigitalOcean CodeCopyButton)
+ *  dark    → kept for older call sites; same as default on the dark theme
+ */
+export function CopyButton({
+  value,
+  label = "Copy",
+  className,
+  dark,
+  showText,
+  variant = dark ? "dark" : "default",
+}: {
+  value: string;
+  label?: string;
+  className?: string;
+  dark?: boolean;
+  showText?: boolean;
+  variant?: "default" | "dark" | "code";
+}) {
   const [copied, setCopied] = useState(false);
+  const styles = {
+    default: "rounded-md px-1.5 py-1 text-xs text-muted hover:bg-hover hover:text-ink",
+    dark: "rounded-md px-1.5 py-1 text-xs text-deep-800 hover:bg-white/10 hover:text-ink",
+    code: "h-7 shrink-0 rounded-full bg-foam-700 px-3 text-xs text-ink hover:bg-foam-800",
+  };
   return (
     <button
       type="button"
@@ -33,12 +58,7 @@ export function CopyButton({ value, label = "Copy", className, dark, showText }:
           window.setTimeout(() => setCopied(false), 1600);
         }
       }}
-      className={cn(
-        "no-print inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-xs font-medium transition-colors",
-        dark ? "text-slate-400 hover:bg-white/10 hover:text-white" : "text-slate-400 hover:bg-slate-100 hover:text-slate-700",
-        copied && (dark ? "text-emerald-400" : "text-emerald-600"),
-        className,
-      )}
+      className={cn("no-print inline-flex items-center justify-center gap-1 font-medium transition-[background-color,color] duration-150", styles[variant], copied && "text-algae-300", className)}
       aria-label={copied ? "Copied" : `${label}: ${value}`}
       title={copied ? "Copied!" : label}
     >

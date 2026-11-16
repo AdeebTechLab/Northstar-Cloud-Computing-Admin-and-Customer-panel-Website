@@ -5,7 +5,7 @@ import { ChevronDown, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 const control =
-  "block w-full rounded-lg border bg-white px-3 text-sm text-slate-900 shadow-[0_1px_1px_rgba(15,23,42,0.02)] transition-colors duration-150 placeholder:text-slate-400 hover:border-slate-300 focus:border-brand-500 focus:outline-none focus:ring-3 focus:ring-brand-500/15 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500";
+  "block w-full rounded-lg border bg-surface px-3 text-sm text-slate-900 shadow-[0_1px_1px_rgba(15,23,42,0.02)] transition-colors duration-150 placeholder:text-slate-400 hover:border-slate-300 focus:border-brand-500 focus:outline-none focus:ring-3 focus:ring-brand-500/15 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-500";
 const okBorder = "border-line";
 const errBorder = "border-red-300 hover:border-red-400 focus:border-red-500 focus:ring-red-500/15";
 
@@ -153,7 +153,7 @@ export function Toggle({
       )}
     >
       <span className="sr-only">{typeof label === "string" ? label : "Toggle"}</span>
-      <span className={cn("inline-block size-[18px] rounded-full bg-white shadow transition-transform duration-200", checked ? "translate-x-[20px]" : "translate-x-[2px]")} />
+      <span className={cn("inline-block size-[18px] rounded-full bg-deep-1000 shadow transition-transform duration-200", checked ? "translate-x-[20px]" : "translate-x-[2px]")} />
     </button>
   );
   if (!label) return sw;

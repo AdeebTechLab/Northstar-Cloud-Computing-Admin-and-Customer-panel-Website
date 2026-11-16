@@ -190,7 +190,7 @@ export function ActivityLog() {
               <ul className="mt-2 space-y-3 border-l border-line pl-4">
                 {g.items.map((a) => (
                   <li key={a.id} className="relative flex items-start justify-between gap-3">
-                    <span className="absolute -left-[21px] top-1.5 size-2.5 rounded-full border-2 border-white bg-brand-500" />
+                    <span className="absolute -left-[21px] top-1.5 size-2.5 rounded-full border-2 border-surface bg-brand-500" />
                     <div>
                       <p className="text-[13px] font-semibold text-slate-900">{a.title}</p>
                       <p className="text-xs text-slate-500">{a.target}</p>

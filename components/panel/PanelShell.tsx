@@ -57,7 +57,7 @@ function Sidebar({
   homeHref: string;
 }) {
   return (
-    <div className="flex h-full flex-col bg-navy-900 text-slate-300">
+    <div className="flex h-full flex-col border-r border-line-soft bg-canvas text-deep-900">
       <div className="flex h-16 shrink-0 items-center border-b border-white/[0.06] px-5">
         <PanelLogo href={homeHref} />
       </div>
@@ -78,12 +78,12 @@ function Sidebar({
                         aria-current={active ? "page" : undefined}
                         className={cn(
                           "group flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] font-medium transition-all duration-150 [&_svg]:size-4 [&_svg]:shrink-0",
-                          active ? "bg-brand-600 text-white shadow-sm shadow-brand-900/50" : "text-slate-400 hover:bg-white/[0.06] hover:text-white",
+                          active ? "bg-foam-200 text-deep-50" : "text-slate-400 hover:bg-white/[0.06] hover:text-white",
                         )}
                       >
                         <span className={cn("transition-transform duration-150", !active && "group-hover:translate-x-0.5")}>{it.icon}</span>
                         <span className="flex-1">{it.label}</span>
-                        {it.badge ? <span className={cn("grid min-w-5 place-items-center rounded-full px-1.5 text-[10px] font-bold", active ? "bg-white text-brand-700" : "bg-red-500 text-white")}>{it.badge}</span> : null}
+                        {it.badge ? <span className={cn("grid min-w-5 place-items-center rounded-full px-1.5 text-[10px] font-bold", active ? "bg-deep-50 text-foam-200" : "bg-coral-400 text-deep-1000")}>{it.badge}</span> : null}
                       </Link>
                     </li>
                   );
@@ -156,7 +156,7 @@ export function PanelShell({
 
       {/* Mobile drawer */}
       <div className={cn("fixed inset-0 z-[75] lg:hidden", drawer ? "" : "pointer-events-none")} aria-hidden={!drawer}>
-        <div className={cn("absolute inset-0 bg-slate-950/50 transition-opacity duration-200", drawer ? "opacity-100" : "opacity-0")} onClick={() => setDrawer(false)} />
+        <div className={cn("absolute inset-0 bg-black/50 transition-opacity duration-200", drawer ? "opacity-100" : "opacity-0")} onClick={() => setDrawer(false)} />
         <aside
           data-sidebar
           className={cn("absolute inset-y-0 left-0 w-[272px] max-w-[85vw] shadow-2xl transition-transform duration-250 ease-out", drawer ? "translate-x-0" : "-translate-x-full")}
@@ -171,7 +171,7 @@ export function PanelShell({
 
       <div data-panel-main className="lg:pl-[248px]">
         {/* Sticky top bar */}
-        <header data-sticky className="sticky top-0 z-20 border-b border-line bg-white/90 backdrop-blur-md">
+        <header data-sticky className="sticky top-0 z-20 border-b border-line-soft bg-canvas/85 backdrop-blur-md">
           <div className="flex h-16 items-center gap-3 px-4 sm:px-6">
             <button type="button" onClick={() => setDrawer(true)} className="grid size-9 place-items-center rounded-lg border border-line text-slate-600 hover:bg-slate-50 lg:hidden" aria-label="Open menu" aria-expanded={drawer}>
               <Menu className="size-[18px]" />
@@ -193,7 +193,7 @@ export function PanelShell({
               >
                 <Search className="size-4 shrink-0" />
                 <span className="hidden flex-1 truncate text-left sm:block">{searchPlaceholder}</span>
-                <kbd className="hidden rounded border border-line bg-white px-1 text-[10px] font-semibold text-slate-400 sm:block">⌘K</kbd>
+                <kbd className="hidden rounded border border-line bg-surface px-1 text-[10px] font-semibold text-slate-400 sm:block">⌘K</kbd>
               </button>
               <Popover
                 label="Notifications"
@@ -201,7 +201,7 @@ export function PanelShell({
                 trigger={({ toggle, open }) => (
                   <button type="button" onClick={toggle} aria-expanded={open} className="relative grid size-9 place-items-center rounded-lg border border-line text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-800" aria-label={`Notifications${unread ? ` (${unread} unread)` : ""}`}>
                     <Bell className="size-4" />
-                    {unread ? <span className="absolute right-1.5 top-1.5 size-2 rounded-full bg-red-500 ring-2 ring-white" /> : null}
+                    {unread ? <span className="absolute right-1.5 top-1.5 size-2 rounded-full bg-red-500 ring-2 ring-surface" /> : null}
                   </button>
                 )}
               >

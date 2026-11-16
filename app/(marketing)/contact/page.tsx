@@ -7,26 +7,41 @@ import { BRAND } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Contact support" };
 
+const rows = [
+  { icon: <Mail />, body: <a className="do-inlinelink" href={`mailto:${BRAND.supportEmail}`}>{BRAND.supportEmail}</a> },
+  { icon: <Clock />, body: <>24/7 technical support · replies within 1 business day</> },
+  { icon: <BookOpen />, body: <Link className="do-inlinelink" href="/docs">Browse the documentation</Link> },
+];
+
 export default function ContactPage() {
   return (
-    <section className="bg-[#f8faff] py-16 sm:py-20">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:px-8">
-        <div className="animate-fade-up">
-          <Eyebrow>Support</Eyebrow>
-          <h1 className="mt-4 text-[32px] font-bold leading-tight tracking-[-0.02em] text-slate-900 sm:text-4xl">We&apos;re here to help.</h1>
-          <p className="mt-4 text-[15px] leading-relaxed text-slate-500">Questions about plans, deployments or billing? Send us a message and the right team will get back to you.</p>
-          <ul className="mt-8 space-y-4 text-sm">
-            <li className="flex items-center gap-3 text-slate-600"><span className="grid size-9 place-items-center rounded-lg bg-brand-50 text-brand-600"><Mail className="size-4" /></span><a className="font-medium hover:text-brand-600" href={`mailto:${BRAND.supportEmail}`}>{BRAND.supportEmail}</a></li>
-            <li className="flex items-center gap-3 text-slate-600"><span className="grid size-9 place-items-center rounded-lg bg-brand-50 text-brand-600"><Clock className="size-4" /></span>24/7 technical support · replies within 1 business day</li>
-            <li className="flex items-center gap-3 text-slate-600"><span className="grid size-9 place-items-center rounded-lg bg-brand-50 text-brand-600"><BookOpen className="size-4" /></span><Link className="font-medium hover:text-brand-600" href="/docs">Browse the documentation</Link></li>
-          </ul>
+    <div className="do-glow-soft">
+      <section className="do-section">
+        <div className="do-inner">
+          <div className="grid w-full gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+            <div className="flex flex-col gap-4 animate-fade-up">
+              <Eyebrow>Support</Eyebrow>
+              <h1 className="t-xl5 t-display">We are here to help.</h1>
+              <p className="text-base text-ink-2">Questions about plans, deployments or billing? Send us a message and the right team will get back to you.</p>
+              <ul className="mt-4 flex flex-col gap-4 text-base text-ink-2">
+                {rows.map((r, i) => (
+                  <li key={i} className="flex items-center gap-4">
+                    <span className="grid size-12 shrink-0 place-items-center rounded-lg border border-line bg-surface text-foam-200 [&_svg]:size-5">{r.icon}</span>
+                    {r.body}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="do-card do-card-border-light p-6 sm:p-8 animate-fade-up [animation-delay:120ms]">
+              <h2 className="font-sans text-lg font-bold leading-[26px] text-ink">Send us a message</h2>
+              <p className="mt-1 text-sm text-muted">We read every message and reply by email.</p>
+              <div className="mt-6">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="rounded-2xl border border-line bg-white p-6 shadow-card animate-fade-up [animation-delay:120ms] sm:p-8">
-          <h2 className="text-lg font-semibold text-slate-900">Send us a message</h2>
-          <p className="mb-6 mt-1 text-[13px] text-slate-500">All fields marked * are required.</p>
-          <ContactForm />
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -176,7 +176,7 @@ export function SupportCenter() {
               {file ? (
                 <div className="flex items-center justify-between rounded-lg border border-line bg-slate-50 px-3 py-2.5 text-[13px]">
                   <span className="flex items-center gap-2 truncate text-slate-700"><Paperclip className="size-4 text-slate-400" />{file.name} <span className="text-xs text-slate-400">({Math.ceil(file.size / 1024)} KB)</span></span>
-                  <button type="button" onClick={() => { setFile(null); if (fileRef.current) fileRef.current.value = ""; }} className="grid size-7 place-items-center rounded-md text-slate-400 hover:bg-white hover:text-slate-700" aria-label="Remove attachment"><X className="size-4" /></button>
+                  <button type="button" onClick={() => { setFile(null); if (fileRef.current) fileRef.current.value = ""; }} className="grid size-7 place-items-center rounded-md text-slate-400 hover:bg-surface hover:text-slate-700" aria-label="Remove attachment"><X className="size-4" /></button>
                 </div>
               ) : (
                 <label htmlFor="t-file" className="flex cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50/60 px-4 py-6 text-center transition-colors hover:border-brand-400 hover:bg-brand-50/40">

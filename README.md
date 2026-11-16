@@ -6,6 +6,28 @@ Responsive frontend for the Northcloud cloud-hosting platform: public website, l
 
 ---
 
+## Design system (cloned from digitalocean.com)
+
+The visual theme is a clone of the 2026 digitalocean.com design system, which renders in its **dark colour scheme**: black page background, near-black cards, cyan (`foam`) accents, white pill buttons with a glow on hero backgrounds, and Plus Jakarta Sans extra-bold headings.
+
+All tokens live in `app/globals.css` (`@theme`):
+
+| Token group | Values |
+|---|---|
+| Fonts | `font-display` Plus Jakarta Sans (headings, 800) · `font-sans` Inter (body 16/24) · `font-mono` JetBrains Mono |
+| Neutrals `deep-*` | `#000000` → `#f4f5f5` (page `canvas` #000, card `surface` #000f0f, hover #13302e, border `line` #1f403e, `line-soft` 10% white) |
+| Brand `foam-*` | `#6fe0ed` primary (buttons, links, tabs), hover `#1aafbf`, top bar `#104b55` |
+| Status | success `algae` #879b42 · warning `tentacle` #daa549 · error `coral` #a54a34 |
+| Text | `ink` #f4f5f5 (primary) · `ink-2` #e5eceb (default) · `muted` #6f908c |
+| Type scale | `.t-xs` … `.t-xl6` (48/56 desktop, 28/36 mobile), `.t-display` |
+| Layout | `.do-section` + `.do-inner` (1088px + 40px gutters, 96px vertical padding; 72px on mobile) |
+| Shapes | pills `rounded-full`, cards 16px, tiles 8px |
+| Effects | `.do-hero-glow` (cyan radial glow), `.do-cta-purple`, `.do-marquee`, `.do-textlink` (growing underline + arrow), `.do-inlinelink` |
+
+The legacy `slate-*`, `brand-*`, `navy-*`, `emerald/amber/red/sky/violet-*` scales used by the customer and admin panels are remapped to the same palette, so every panel page follows the theme without per-page changes.
+
+---
+
 ## Demo logins
 
 | Panel | Email | Password |
@@ -48,8 +70,15 @@ Push the folder to GitHub, then import the repo on **vercel.com** (free plan). V
 
 ## Pages (routes)
 
-**Public website**
-- `/` — Homepage: hero, stats, features, terminal section, pricing, FAQ, "Why Northstar", CTA, footer
+**Public website** (every page cloned from the matching digitalocean.com template)
+- `/` — Homepage: glow hero, logo strip, stat cards, tabbed platform layers, pricing, performance split, resources carousel, FAQ, CTA
+- `/products` — product catalogue: hero, overview grid, testimonial, category card grids, infrastructure
+- `/products/[slug]` — product detail (cloud-compute, high-performance, optimized-compute, block-storage, cloud-firewalls): banner, feature showcase, plan cards, savings band, provider comparison table, tools grid, image tabs, testimonial carousel, FAQ
+- `/pricing` — jump nav, "Starting at" pricing cards per category, calculator band, platform benefits, ROI and bandwidth bands, FAQ
+- `/solutions` — numbered categories with text, icon and logo card grids
+- `/customers` — hero, logo strip, featured stories, filterable case-study grid, "Proof at every layer"
+- `/community` — featured banner, content-type sidebar, latest posts, "Start here" tabs, topic feeds, resource cards
+- Content for these pages lives in `lib/pages.ts`; shared blocks in `features/marketing/Blocks.tsx` and `Interactive.tsx`
 - `/docs` — Documentation (searchable, expandable guides with copy buttons)
 - `/contact` — Contact / support form
 - `/legal` — Privacy & Terms (placeholder text)
